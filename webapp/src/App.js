@@ -7,7 +7,7 @@ function App() {
   const [getMessage, setGetMessage] = useState({})
 
   useEffect(()=>{
-    axios.get('https://game-center-weikun.herokuapp.com/api/hello').then(response => {
+    axios.get('/api/hello').then(response => {
       console.log("SUCCESS", response)
       setGetMessage(response)
     }).catch(error => {
