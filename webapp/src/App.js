@@ -1,15 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios'
 
 function App() {
-  const [getMessage, setGetMessage] = useState({})
+  const [games, setGames] = useState({})
 
   useEffect(()=>{
-    axios.get('/api/hello').then(response => {
+    axios.get('/api/games').then(response => {
       console.log("SUCCESS", response)
-      setGetMessage(response)
+      setGames(response.data.games)
     }).catch(error => {
       console.log(error)
     })
@@ -17,14 +17,22 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>React + Flask Tutorial</p>
-        <div>{getMessage.status === 200 ? 
-          <h3>{getMessage.data.message}</h3>
-          :
-          <h3>LOADING</h3>}</div>
-      </header>
+      <Routes>
+        <Route path="/" exact element={
+          games.length > 0 ? games.map((game) => {
+            return <Link to={`${game}`}>{game}</Link>
+          }):"loading"
+        }>
+        </Route>
+        {games.length > 0 ? games.map((game) => {
+          return (
+            <Route path={`/${game}`} exact element={
+              <div>{game}</div>
+            }/>
+          )
+        }):"loading"}
+        
+      </Routes>
     </div>
   );
 }
