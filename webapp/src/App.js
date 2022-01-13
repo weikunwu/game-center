@@ -8,7 +8,6 @@ function App() {
 
   useEffect(()=>{
     axios.get('/api/games').then(response => {
-      console.log("SUCCESS", response)
       setGames(response.data.games)
     }).catch(error => {
       console.log(error)
@@ -19,11 +18,12 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" exact element={
-          games.length > 0 ? games.map((game) => {
-            return <Link to={`${game}`}>{game}</Link>
-          }):"loading"
-        }>
-        </Route>
+          <ul style={{listStyle:"none"}}>
+            {games.length > 0 ? games.map((game) => {
+                return <li><Link to={`${game}`}>{game}</Link></li>
+            }):"loading"}
+          </ul>
+          }/>
         {games.length > 0 ? games.map((game) => {
           return (
             <Route path={`/${game}`} exact element={
