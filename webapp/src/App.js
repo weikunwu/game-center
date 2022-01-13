@@ -31,7 +31,7 @@ function App() {
             }/>
           )
         }):"loading"}
-        
+        <Route path="*" element={<div>Page Not Found</div>}/>  
       </Routes>
     </div>
   );
