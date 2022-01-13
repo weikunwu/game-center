@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory
 from flask_restful import Api, Resource, reqparse
 from service.minesweeper import minesweeper_bp
 from service.sudoku import sudoku_bp
+from service.gomoku import gomoku_bp
 
 app = Flask(__name__, static_url_path='', static_folder='webapp/build')
 api = Api(app)
@@ -19,9 +20,11 @@ def games():
   return {
     'games':[
       'minesweeper',
-      'sudoku'
+      'sudoku',
+      'gomoku'
     ]
   }
 
 app.register_blueprint(minesweeper_bp, url_prefix="/api/games/minesweeper")
 app.register_blueprint(sudoku_bp, url_prefix="/api/games/sudoku")
+app.register_blueprint(sudoku_bp, url_prefix="/api/games/gomoku")
