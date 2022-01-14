@@ -49,7 +49,7 @@ const NavBar = ({ className, userLoggedIn }) => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <Avatar alt="Game Center" src={NavBarLogo} />
+            <img alt="Game Center" src={NavBarLogo} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -95,7 +95,7 @@ const NavBar = ({ className, userLoggedIn }) => {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={`/${page}`}>{page}</Link>
+                    <Link to={`/${page}`} style={{color: "black", textDecoration: "none" }}>{page}</Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -107,7 +107,7 @@ const NavBar = ({ className, userLoggedIn }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            <Avatar alt="Game Center" src={NavBarLogo} />
+            <img alt="Game Center" src={NavBarLogo} />
           </Typography>
 
           {userLoggedIn ?
