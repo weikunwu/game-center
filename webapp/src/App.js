@@ -9,20 +9,20 @@ function App() {
   const [games, setGames] = useState({})
 
   useEffect(() => {
-      axios.get('/api/games').then(response => {
-          setGames(response.data.games)
-      }).catch(error => {
-          console.log(error)
-      })
+    axios.get('/api/games').then(response => {
+      setGames(response.data.games)
+    }).catch(error => {
+      console.log(error)
+    })
   }, [])
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar />
       <Routes>
         <Route path="/" exact element={<Navigate replace to="/home" />} />
         <Route path="/home" exact element={
-          <Home games={games}/>
+          <Home games={games} />
         } />
         {games.length > 0 ? games.map((game) => {
           return (
@@ -31,6 +31,9 @@ function App() {
             } />
           )
         }) : "loading"}
+        <Route path="/login" exact element={
+          <div>Login</div>
+        } />
         <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
     </div>
