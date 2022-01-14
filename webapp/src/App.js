@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import Home from './containers/Home';
+import NavBar from './components/NavBar';
 import axios from 'axios'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar/>
       <Routes>
         <Route path="/" exact element={<Navigate replace to="/home" />} />
         <Route path="/home" exact element={
