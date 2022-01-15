@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React, { Fragment, useEffect, useState } from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Games from './Games';
 
 const Home = ({ games }) => {
   return (
@@ -10,13 +10,9 @@ const Home = ({ games }) => {
         variant="h3"
         noWrap
         component="div"
-        sx={{ mt: 2, mb: 2 }}
+        sx={{ mt: 2, mb: 2 ,color:"#1976d2"}}
       >Game Center</Typography>
-      <ul style={{ listStyle: "none" }}>
-        {games.length > 0 ? games.map((game) => {
-          return <li><Link to={`/${game}`}>{game}</Link></li>
-        }) : "loading"}
-      </ul>
+      <Games games = {games}/>
     </Fragment>
   );
 }
