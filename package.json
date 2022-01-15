@@ -6,7 +6,7 @@
         "node": "17.x"
     },
     "scripts": {
-      "development": "npm run heroku-postbuild && cd .. && source venv/bin/activate && flask run",
+      "development": "npm run heroku-postbuild && source venv/bin/activate && export FLASK_ENV=development &&flask run",
       "heroku-postbuild": "cd webapp && npm install && npm run build && cp -R ./src/assets ./build/assets"
     }
   }
