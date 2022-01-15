@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Fragment, Component, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import Home from './containers/Home';
 import NavBar from './components/NavBar';
@@ -7,12 +7,14 @@ import axios from 'axios'
 
 function App() {
   const [games, setGames] = useState({})
-  const components = {};
+  const [components, setComponents] = useState({});
   useEffect(() => {
     axios.get('/api/games').then(response => {
       setGames(response.data.games)
       response.data.games.forEach((game) => {
-        components[game] = require(`./containers/${game}`).default
+        setComponents({
+          game: require(`./containers/${game}`).default
+        })
       })
     }).catch(error => {
       console.log(error)
