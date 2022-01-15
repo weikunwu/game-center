@@ -40,7 +40,7 @@ const NavBar = ({ className, userLoggedIn }) => {
   };
 
   return (
-    <AppBar className={className} position="static">
+    <AppBar className={className} position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
