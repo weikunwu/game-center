@@ -19,9 +19,9 @@ def not_found(e):
 def games():
   return {
     'games':[
-      'MineSweeper',
-      'Sudoku',
-      'Gomoku'
+      'minesweeper',
+      'sudoku',
+      'gomoku'
     ]
   }
 

@@ -7,15 +7,10 @@ import axios from 'axios'
 
 function App() {
   const [games, setGames] = useState({})
-  const [components, setComponents] = useState({});
+
   useEffect(() => {
     axios.get('/api/games').then(response => {
       setGames(response.data.games)
-      response.data.games.forEach((game) => {
-        setComponents({
-          game: require(`./containers/${game}`).default
-        })
-      })
     }).catch(error => {
       console.log(error)
     })
@@ -28,10 +23,9 @@ function App() {
         {games.length > 0 ?
           <Fragment >
             {games.map((game) => {
-              const { game: Component } = components;
               return (
                 <Route path={`/${game}`} exact element={
-                  Component && <Component />
+                  <div>{game}</div>
                 } />
               )
             })}
