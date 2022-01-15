@@ -1,12 +1,12 @@
 {
-    "cacheDirectories": [
-      "webapp/node_modules"
-    ],
-    "engines": {
-        "node": "17.x"
-    },
-    "scripts": {
-      "development": "npm run heroku-postbuild && source venv/bin/activate && export FLASK_ENV=development &&flask run",
-      "heroku-postbuild": "cd webapp && npm install && npm run build && cp -R ./src/assets ./build/assets"
-    }
+  "cacheDirectories": [
+    "webapp/node_modules"
+  ],
+  "engines": {
+    "node": "17.x"
+  },
+  "scripts": {
+    "development": "npm run heroku-postbuild && source venv/bin/activate && export FLASK_ENV=development &&flask run",
+    "heroku-postbuild": "cd webapp && npm install && npm run build && cp -R ./src/assets ./build/assets"
   }
+}

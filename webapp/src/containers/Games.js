@@ -21,7 +21,7 @@ const Games = ({ games }) => {
                 navigate(`/${game}`);
               }}>
                 <Item >
-                  <img alt={game} src={`/assets/${game}.png`} style={{ height: "100%", width: "100%" }} />
+                  <img alt={game} src={require(`../assets/${game}.png`)} style={{ height: "100%", width: "100%" }} />
                   <Typography
                     variant="h6"
                     noWrap

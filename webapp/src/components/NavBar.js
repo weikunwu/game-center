@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -95,7 +95,7 @@ const NavBar = ({ className, userLoggedIn }) => {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={`/${page}`} style={{color: "black", textDecoration: "none" }}>{page}</Link>
+                    <Link to={`/${page}`} style={{ color: "black", textDecoration: "none" }}>{page}</Link>
                   </Typography>
                 </MenuItem>
               ))}
