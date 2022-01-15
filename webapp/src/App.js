@@ -2,7 +2,6 @@ import './App.css';
 import React, { Fragment, useEffect, useState } from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import Home from './containers/Home';
-// import Games from './containers/Games'
 import NavBar from './components/NavBar';
 import axios from 'axios'
 
