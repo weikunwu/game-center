@@ -23,9 +23,10 @@ function App() {
         {games.length > 0 ?
           <Fragment >
             {games.map((game) => {
+              const GameComponent = require(`./containers/${game}`).default;
               return (
-                <Route path={`/${game}`} exact element={
-                  <div>{game}</div>
+                <Route key={game} path={`/${game}`} exact element={
+                  <GameComponent />
                 } />
               )
             })}
