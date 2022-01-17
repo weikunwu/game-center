@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Grid, Paper, Box, Button, Typography } from '@mui/material';
+import { Grid, Paper, Box, Typography } from '@mui/material';
 import GameCard from '../components/GameCard';
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -11,7 +10,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Games = ({ games }) => {
-  const navigate = useNavigate();
   return (
     <Box>
       {games.length > 0 ?
@@ -19,7 +17,7 @@ const Games = ({ games }) => {
           {games.map((game) => {
             return (
               <Grid item xs={2} sm={4} md={4} key={game}>
-                <GameCard game={game} />
+                <GameCard game={game.toLowerCase()} />
               </Grid>
             )
           })}

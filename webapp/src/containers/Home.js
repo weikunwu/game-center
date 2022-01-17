@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
-import React, { Fragment, useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { Fragment } from 'react';
+import { styled } from '@mui/material/styles';
 import Games from './Games';
 
 const Home = ({ games }) => {
@@ -10,9 +10,9 @@ const Home = ({ games }) => {
         variant="h3"
         noWrap
         component="div"
-        sx={{ mt: 2, mb: 2 ,color:"#1976d2"}}
+        sx={{ mt: 2, mb: 2, color: "#1976d2" }}
       >Game Center</Typography>
-      <Games games = {games}/>
+      <Games games={games} />
     </Fragment>
   );
 }
