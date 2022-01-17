@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -17,10 +17,11 @@ import {
 } from '@mui/material';
 import NavBarLogo from '../assets/GameCenter-icon.png';
 
-const pages = ['Home'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['home'];
+const settings = ['profile', 'account', 'dashboard', 'logout'];
 
 const NavBar = ({ className, userLoggedIn }) => {
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -55,10 +56,13 @@ const NavBar = ({ className, userLoggedIn }) => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={(event)=>{
+                  handleCloseNavMenu(event);
+                  navigate(`/${page}`);
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link to={`/${page}`}>{page}</Link>
+                {page}
               </Button>
             ))}
           </Box>
